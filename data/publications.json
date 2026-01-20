@@ -1,0 +1,55 @@
+[
+  {
+    "type": "journal",
+    "status": "published",
+    "date": "September 2025",
+    "citation": "<strong>Raha, A.</strong> &ldquo;Lightweight COVID-19 Detection from Chest CT-Scans Using Attention-Based CNN.&rdquo; <em>SN Computer Science</em> 6, 853 (2025).",
+    "doi": {
+      "link": "https://doi.org/10.1007/s42979-025-04403-5",
+      "text": "doi:10.1007/s42979-025-04403-5"
+    },
+    "preprint": {
+      "link": "https://rdcu.be/eIeLu",
+      "text": "Read Online"
+    }
+  },
+  {
+    "type": "conference",
+    "status": "published",
+    "date": "March 2025",
+    "citation": "<strong>Raha, A.</strong> and Tasnim, Q. S. &ldquo;Efficient Mulberry Leaf Disease Detection in Bangladesh: A Lightweight Approach for Real-Time Applications.&rdquo; In <em>Proc. 2025 Int. Conf. on Electrical, Computer and Communication Engineering (ECCE)</em>, Chittagong, Bangladesh (2025), pp. 1&ndash;6.",
+    "doi": {
+      "link": "https://doi.org/10.1109/ECCE64574.2025.11013948",
+      "text": "doi:10.1109/ECCE64574.2025.11013948"
+    },
+    "preprint": {
+      "link": "docs/preprint_raha2025mulberry.pdf",
+      "text": "Get Preprint"
+    }
+  },
+  {
+    "type": "chapter",
+    "status": "published",
+    "date": "May 2024",
+    "citation": "<strong>Raha, A.</strong>, Parvin, F., and Jannat, T. &ldquo;Brain Tumor Segmentation with Efficient and Low-Complex Architecture Using RCNN and Modified U-Net.&rdquo; In <em>Proc. 2nd Int. Conf. on Big Data, IoT and Machine Learning (BIM 2023), Lecture Notes in Networks and Systems</em>, vol. 867 (Springer, 2024).",
+    "doi": {
+      "link": "https://doi.org/10.1007/978-981-99-8937-9_22",
+      "text": "doi:10.1007/978-981-99-8937-9_22"},
+    "preprint": {
+      "link": "docs/preprint_raha2023.pdf",
+      "text": "Get Preprint"
+    }
+  },
+  {
+    "type": "chapter",
+    "status": "accepted",
+    "date": "November 2025",
+    "citation": "<strong>Raha, A.</strong>, Ahmed, J., Hossain, M.S., Majumdar, S. &ldquo;Defending Model Inversion Attack Using an Improved Filter-Based Approach.&rdquo; In <em>FPS-2025</em> (Brest, France), accepted (2025)."
+  },
+  {
+    "type": "conference",
+    "status": "accepted",
+    "date": "December 2025",
+    "citation": "Datta, S., <strong>Raha, A.</strong>, and Sharmin, S. &ldquo;The Body's Whisper: A Privacy-Preserving, Reason-Aligned Micro-Break Assistant for Remote Workers.&rdquo; In <em>HCI-2026</em> (Montreal, Canada), accepted (2025)."
+  }
+]

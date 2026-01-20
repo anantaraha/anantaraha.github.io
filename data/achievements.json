@@ -1,0 +1,79 @@
+[
+  {
+    "type": "scholarship",
+    "title": "M.Sc. Research Fellowship",
+    "subtitle": "Bangladesh University of Engineering and Technology",
+    "date": "June 2025 &mdash; Present",
+    "description": "&mdash;&ldquo;One of the three masters students awarded in October-2024 semester; awarded stipend for 3 consecutive semesters.&ldquo;"
+  },
+  {
+    "type": "scholarship",
+    "title": "Education Board Scholarship",
+    "subtitle": "Board of Intermediate and Secondary Education, Dhaka",
+    "date": "January 2018 &mdash; December 2021",
+    "description": "&mdash;&ldquo;Awarded for academic excellence in the HSC (2017) examination.&ldquo;"
+  },
+  {
+    "type": "scholarship",
+    "title": "Education Board Scholarship",
+    "subtitle": "Board of Intermediate and Secondary Education, Dhaka",
+    "date": "July 2015 &mdash; July 2017",
+    "description": "&mdash;&ldquo;Awarded for academic excellence in the SSC (2015) examination.&ldquo;"
+  },
+  {
+    "type": "scholarship",
+    "title": "Education Board Scholarship",
+    "subtitle": "Board of Intermediate and Secondary Education, Dhaka",
+    "date": "January 2013 &mdash; December 2024",
+    "description": "&mdash;&ldquo;Awarded for academic excellence in the JSC (2012) examination.&ldquo;"
+  },
+  {
+    "type": "conference",
+    "title": "18th International Symposium on Foundations &amp; Practice of Security",
+    "subtitle": "",
+    "date": "November 25-27, 2025<br>Brest, France",
+    "description": "<ins>Presented:</ins> &ldquo;Defending Model Inversion Attack Using an Improved Filter-Based Approach.&rdquo;"
+  },
+  {
+    "type": "conference",
+    "title": "2025 International Conference on Electrical, Computer and Communication Engineering",
+    "subtitle": "",
+    "date": "February 13-15, 2025<br>CUET, Bangladesh",
+    "certificate": {
+      "link": "docs/cert_conf_ecce2025.pdf",
+      "text": "View Certificate"
+    },
+    "description": "<ins>Presented:</ins> &ldquo;Efficient Mulberry Leaf Disease Detection in Bangladesh: A Lightweight Approach for Real-Time Applications.&rdquo;"
+  },
+  {
+    "type": "conference",
+    "title": "2nd International Conference on Big Data, IoT and Machine Learning",
+    "subtitle": "",
+    "date": "September 6-8, 2023<br>Dhaka, Bangladesh",
+    "certificate": {
+      "link": "docs/cert_conf_bim2023.pdf",
+      "text": "View Certificate"
+    },
+    "description": "<ins>Presented:</ins> &ldquo;Brain Tumor Segmentation with Efficient and Low-Complex Architecture Using RCNN and Modified U-Net.&rdquo;"
+  },
+  {
+    "type": "certification",
+    "title": "Regular Expressions in Python",
+    "subtitle": "Coursera",
+    "date": "April 2022",
+    "certificate": {
+      "link": "https://coursera.org/share/a28b831645a16181e65b7c2f12f4ba9b",
+      "text": "Verify Certificate"
+    }
+  },
+  {
+    "type": "certification",
+    "title": "Specialization: Python for Everybody",
+    "subtitle": "University of Michigan (Coursera)",
+    "date": "July 2020",
+    "certificate": {
+      "link": "https://coursera.org/share/0713042c2ad15eefb3096ccc92d01d3e",
+      "text": "Verify Certificate"
+    }
+  }
+]

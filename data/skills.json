@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Research Experience in Deep Learning and Computer Vision",
+    "skills": [
+      "Led a self-directed research project end-to-end&mdash;from problem formulation to publication.",
+      "First author in multiple articles; collaboration for feedback and validation.",
+      "<ins>Libraries:</ins> <em>OpenCV, TensorFlow, PyTorch, NumPy, Pandas, Scikit-learn</em>, etc."
+    ]
+  },
+  {
+    "title": "Experience in Mobile Application Development",
+    "skills": [
+      "Over 7 years of experience in testing, publishing and maintaining production-grade apps on Google Play.",
+      "Solely developed an intuitive app and maintained it as a hobby project.",
+      "<ins>Frameworks:</ins> <em>Java, Android Studio, Firebase, JUnit, Espresso</em>, etc."
+    ]
+  },
+  {
+    "title": "Web Development and Scraping",
+    "skills": [
+      "<ins>Frameworks:</ins> <em>BeautifulSoup4, Django, React.js, Tailwind CSS, Bootstrap, jQuery</em>, etc."
+    ]
+  },
+  {
+    "title": "Practical Experience in IoT (Internet of Things) and Robotics",
+    "skills": [
+      "Multiple projects using Arduino and ESP32 microcontrollers.", 
+      "Wrote code for a robust Line Follower Robot (LFR).",
+      "<ins>IDE/Frameworks:</ins> <em>PlatformIO, Arduino IDE.</em>"
+    ]
+  },
+  {
+    "title": "Proficiency in Programming Languages",
+    "skills": [
+      "<em>C/C++, Java, Python, JavaScript, Assembly, Shell scripting.</em>"
+    ]
+  }
+]

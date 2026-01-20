@@ -3,226 +3,370 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ananta Raha - Portfolio</title>
+  <title>Ananta Raha&ndash;Portfolio</title>
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- Tailwind CSS -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
   <!-- Reusable UI Elements -->
   <style type="text/tailwindcss">
     :root {
-      --color-p: #00acc1;
-      --color-p-hover: #26c6da;
-      --color-p-active: #00838f;
-      --color-p-mute: #80deea;
-      --color-ac-1: #ff3d00;
-      --color-ac-1-hover: #ff8a65;
-      --color-ac-1-active: #dd2c00;
-      --color-ac-1-mute: #ffccbc;
-      --color-ac-2: #2979ff;
-      --color-ac-2-hover: #64b5f6;
-      --color-ac-2-active: #2962ff;
-      --color-ac-2-mute: #bbdefb;
-      --color-bg: #fafafa;
-      --color-sf: #f1f1f1;
-      --color-sf-hover: #e0e0e0;
-      --color-sf-overlay: #d7d7d7;
-      --color-t-1: #212121;
-      --color-t-2: #424242;
-      --color-t-3: #6b6b6b;
+      --color-prim: #00acc1;
+      --color-prim-focus: #26c6da;
+      --color-prim-active: #00838f;
+      --color-prim-mute: #80deea;
+      --color-acc1: #ff8a4c;
+      --color-acc1-focus: #ffa46f;
+      --color-acc1-active: #e06f2f;
+      --color-acc1-mute: #ffe1d1;
+      --color-acc2: #651fff;
+      --color-acc2-focus: #7c4dff;
+      --color-acc2-active: #6200ea;
+      --color-acc2-mute: #b388ff;
+      --color-bg: #eceff1;
+      --color-sf: #fafafa;
+      --color-sf-focus: #e0e0e0;
+      --color-sf-overlay: #ededed;
+      --color-txt1: #000000;
+      --color-txt2: #424242;
+      --color-txt3: #757575;
+      
+
+      --font-fam1: "Nunito Sans", Arial, sans-serif;
+      --font-fam2: "Raleway", Times, serif;
+      --font-fam3: "Atkinson Hyperlegible Next", Arial, sans-serif;
+      --font-fam4: "Roboto Slab", Courier, monospace;
+
+      --corner-fold: 36px;
+      
     }
     @layer components {
-      /* Primary font */
-      .font-family-1 {
-        font-family: "Nunito Sans", Arial, sans-serif;
-      }
-
-      /* Secondary font */
-      .font-family-2 {
-        font-family: "Raleway", Times, serif;
-      }
-      
-      /* Monospace font */
-      .font-family-3 {
-        font-family: "JetBrains Mono", Courier, monospace
-      }
-
-      /* Navbar link */
       .nav-link {
-        @apply text-[var(--color-p)] hover:text-[var(--color-p-hover)] font-bold px-4 py-1 no-underline;
+        @apply 
+        relative inline-block my-1 px-2 font-semibold lowercase
+        hover:text-[var(--color-prim-focus)]
+        after:content-[''] after:absolute after:-bottom-1/7 after:left-1/2
+        after:w-1.5 after:h-1.5 after:-translate-x-1/2 after:rounded-full
+        after:bg-[var(--color-prim-active)] after:opacity-0 after:scale-75
+        hover:after:bg-[var(--color-prim-focus)];
+      }
+
+      .nav-link.mobile {
+        @apply
+        px-8 after:bottom-1/2 after:left-4 after:translate-y-1/2;
       }
 
       .nav-link-active {
-        @apply underline text-[var(--color-p-active)];
+        @apply
+        text-[var(--color-prim-active)]
+        after:opacity-100;
       }
 
-      /* Section */
       .section {
-        @apply p-2 md:p-4;
+        @apply
+        pt-8;
       }
 
       .section-title {
-        @apply text-[var(--color-t-1)] text-2xl md:text-4xl text-center m-2 mt-4 md:m-4 md:mt-8;
-        font-family: "Raleway", Times, serif;
+        font-family: var(--font-fam2);
+        @apply 
+        font-bold text-xl md:text-2xl text-[var(--color-prim)]
+      }
+
+      .subsection {
+        @apply
+        py-4;
+      }
+
+      .subsection-title {
+        font-family: var(--font-fam2);
+        @apply
+        text-[var(--color-txt1)] font-bold
+        underline underline-offset-6 decoration-double decoration-2 decoration-[var(--color-prim)]
+      }
+
+      .separator {
+        @apply
+        w-7 h-1 bg-[var(--color-prim)] left-0 my-4;
+      }
+
+      .card {
+        @apply
+        bg-[var(--color-sf)] border-1 border-[var(--color-sf-focus)] rounded-md md:rounded-lg py-3 px-4 md:py-6 md:px-8;
+      }
+
+      .inner-box-vbar {
+        @apply
+        hover:after:scale-x-125 after:origin-left
+        shadow-[inset_0_0_0_1px_var(--color-sf-focus)]
+        relative bg-[var(--color-sf-overlay)] rounded-r-2xl md:rounded-r-4xl w-full py-2 px-4 after:absolute after:content-[''] after:left-0 after:w-1 after:h-full after:bottom-0 after:bg-[var(--color-prim)];
+      }
+
+      .inner-box-pointed {
+        @apply
+        hover:after:scale-125 after:origin-left
+        shadow-[inset_0_0_0_1px_var(--color-sf-focus)]
+        relative bg-[var(--color-sf-overlay)] rounded-2xl md:rounded-4xl w-full py-2 pr-4 pl-8 after:absolute after:content-[''] after:left-0 after:w-2 after:rounded-r-full after:h-4 after:bottom-1/2 after:translate-y-1/2 after:bg-[var(--color-prim)];
+      }
+
+      .listing {
+        @apply
+        flex flex-col md:flex-row items-center pt-2 md:pt-4;
+      }
+
+      .listing-flip {
+        @apply
+        flex flex-col md:flex-row items-start pt-6 md:pt-8
+        even:[&>.listing-content-first]:md:order-2
+        even:[&>.listing-content-second]:md:order-1
+        even:[&>.listing-content-first]:text-end
+        even:[&>.listing-content-first]:md:text-start
+        even:[&>.listing-content-second]:text-end;
+        @apply
+        even:[&>.inner-box-vbar]:after:origin-right
+        even:[&>.inner-box-vbar]:rounded-r-none
+        even:[&>.inner-box-vbar]:md:rounded-r-none
+        even:[&>.inner-box-vbar]:rounded-l-2xl
+        even:[&>.inner-box-vbar]:md:rounded-l-4xl
+        even:[&>.inner-box-vbar]:after:left-auto
+        even:[&>.inner-box-vbar]:after:right-0;
+        @apply
+        even:[&>.inner-box-pointed]:after:origin-right
+        even:[&>.inner-box-pointed]:after:rounded-r-none
+        even:[&>.inner-box-pointed]:after:rounded-l-full
+        even:[&>.inner-box-pointed]:after:left-auto
+        even:[&>.inner-box-pointed]:after:right-0;
+      }
+
+      .listing-content-first {
+        @apply
+        w-full md:w-[20%] md:px-4
+        order-1 text-start md:text-end;
+      }
+      .listing-flip>.listing-content-first {
+        @apply
+        md:w-[30%];
+      }
+      
+      .listing-content-second {
+        @apply
+        w-full md:w-[80%]
+        order-2 text-start;
+      }
+      .listing-flip>.listing-content-second {
+        @apply
+        md:w-[70%];
+      }
+
+      .thumbnail-card {
+        @apply
+        shadow-[inset_0_0_0_1px_var(--color-sf-focus)]
+        grid md:grid-cols-[30%_1fr] items-center md:items-start md:auto-rows-min
+        bg-[var(--color-sf-overlay)] rounded-2xl md:rounded-4xl mt-4 md:mt-8
+        relative after:absolute after:content-[''] [container-type:inline-size]
+        after:left-0 after:h-1 after:w-full after:top-[min(75cqw,240px)]
+        after:md:left-[30%] after:md:w-1 after:md:h-full after:md:top-0
+        after:bg-[var(--color-prim)]
+        hover:after:scale-x-125 after:origin-left;
+      }
+
+      .thumbnail-card-image {
+        @apply
+        transition-transform duration-200 transform hover:scale-150 hover:rounded-none z-10
+        col-start-1 row-start-1 md:col-start-1 md:row-start-1 text-center
+        w-full max-h-[240px] aspect-[1.33] object-cover rounded-t-2xl md:rounded-tr-none md:rounded-tl-4xl
+        md:border-b-1
+        border-[var(--color-sf-focus)];
+      }
+
+      .thumbnail-card-head {
+        @apply
+        col-start-1 row-start-2 md:col-start-2 md:row-start-1 md:row-end-[999]
+        w-full py-2 px-4;
+      }
+
+      .thumbnail-card-extra {
+        @apply
+        col-start-1 row-start-3 md:col-start-1 md:row-start-2
+        w-full px-4
+        flex md:flex-col flex-wrap justify-center md:justify-start items-center md:items-end gap-2 py-2 md:py-4 md:gap-4;
+      }
+
+      .sticky-card {
+        @apply
+        break-inside-avoid mb-4 md:mb-8 rounded-lg
+        bg-linear-to-br from-[var(--color-sf-overlay)] via-[var(--color-sf-overlay)] to-[var(--color-sf)]
+        relative border-1 border-[var(--color-sf-focus)] p-2 md:p-3;
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% calc(100% - var(--corner-fold)),
+          calc(100% - var(--corner-fold)) 100%,
+          0 100%
+        );
+      }
+
+      .sticky-card::after {
+        @apply
+        content-[''] absolute bottom-0 right-0 h-0 w-0 border-r-[36px] border-r-transparent border-t-[36px] border-t-[var(--color-sf-focus)] rounded-tl-lg;
+      }
+
+      .sticky-card>ul {
+        @apply
+        list-disc marker:font-bold marker:text-[var(--color-prim)] ps-8 pe-4 space-y-2;
+      }
+
+      .sticky-card>hr {
+        @apply border-1 border-dashed border-[var(--color-prim)];
+      }
+
+      .date {
+        font-family: var(--font-fam2);
+        @apply
+        italic font-medium py-1 text-[var(--color-txt3)] text-base md:text-lg
       }
 
       .title {
-        @apply text-[var(--color-t-1)] text-xl md:text-2xl font-medium mb-2 md:mb-4;
+        font-family: var(--font-fam1);
+        @apply
+        text-[var(--color-txt1)] font-semibold;
       }
 
-      .text-muted {
-        @apply text-[var(--color-t-3)];
+      .subtitle {
+        font-family: var(--font-fam3);
+        @apply
+        text-[var(--color-txt3)];
       }
 
-      /* List (inside or outside card) */
-      .list {
-        @apply list-[upper-roman] list-outside marker:font-bold mx-4;
+      .summary {
+        @apply
+        italic text-[var(--color-txt3)];
       }
 
-      .list-u {
-        @apply list-disc list-outside marker:text-[var(--color-p)] mx-4;
-      }
-
-      hr {
-        @apply border-[var(--color-sf-overlay)] border-t-1 my-2 md:my-4;
-      }
-
-      /* Card */
-      .card {
-        @apply bg-[var(--color-sf)] rounded-xl md:rounded-2xl border-1 border-[var(--color-sf-overlay)] px-4 py-3 md:px-8 md:py-6 mx-2 md:mx-4 my-3 md:my-6;
-      }
-
-      .sticky {
-        @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 p-2 md:p-4;
-      }
-
-      .sticky .card {
-        @apply mx-0 my-0;
-      }
-
-      .card hr {
-        @apply -mx-4 md:-mx-8;
-      }
-
-      .card .list hr, .card .list-u hr {
-        @apply -mx-8 md:-mx-12;
-      }
-
-      .chip {
-        @apply border-t-1 border-l-1 border-b-2 border-r-2 border-[var(--color-sf-overlay)] bg-[var(--color-bg)] inline-block text-base md:text-lg px-2 md:px-3 py-1 my-1 rounded-lg md:rounded-xl font-medium text-[var(--color-p)];
-      }
-
-      .chip-group {
-        @apply flex flex-wrap space-x-1 items-center;
-      }
-
-      /* Link (for social icons, etc.) */
-      a:not(.nav-link):not(.nav-link-active):not(.link-button) {
-        @apply hover:underline active:underline text-[var(--color-ac-2)] hover:text-[var(--color-ac-2-hover)] active:text-[var(--color-ac-2-active)] visited:text-blue-800;
+      .link {
+        @apply font-mono underline hover:text-[var(--color-txt1)];
       }
 
       .link-button {
-        @apply text-base md:text-lg text-[var(--color-ac-1)] hover:text-[var(--color-ac-1-hover)] active:text-[var(--color-ac-1-active)] visited:text-orange-800 font-bold;
+        @apply
+        bg-white
+        inline-block font-semibold font-mono uppercase hover:underline text-xs md:text-sm text-[var(--color-acc1)] hover:text-[var(--color-acc1-focus)] active:text-[var(--color-acc1-active)];
+      }
+
+      .chip {
+        @apply
+        rounded-full px-1 md:px-2 font-medium font-mono text-sm md:text-base text-[var(--color-txt3)] border-1 border-[var(--color-prim)]
+        bg-linear-to-tr from-[var(--color-sf-focus)] to-white;
+      }
+
+      .self-name {
+        font-family: var(--font-fam4);
+        @apply
+        font-light text-xl md:text-2xl text-[var(--color-txt3)];
+      }
+
+      hr {
+        @apply
+        border-1 border-[var(--color-sf-focus)] my-1;
+      }
+
+      strong {
+        @apply
+        font-semibold text-[var(--color-txt2)];
       }
     }
   </style>
 
 </head>
 
-<body class="font-family-1 text-[var(--color-t-2)] text-lg md:text-xl bg-[var(--color-bg)] antialiased leading-relaxed min-h-screen">
+<body class="bg-[var(--color-bg)] antialiased leading-relaxed min-h-screen font-[var(--font-fam1)] text-base md:text-lg  text-[var(--color-txt2)]">
 
   <!-- Header -->
   <header id="nav-bar" class="bg-white shadow-md fixed w-full top-0 z-50">
-    <div class="flex px-4 py-2 justify-center">
-      <div class="flex-1 flex-col">
-        <!-- Line 1: Name -->
-        <div id="nav-bar-title" class="font-family-3 text-center text-2xl md:text-4xl font-medium">
-          Ananta Raha <!-- Line 2: Subtitle -->
-        <span id="nav-bar-subtitle" class="hidden md:inline font-family-3 text-center text-base md:text-lg">
-          — Learner, Researcher, ML/AI Enthusiast
-        </span>
-        </div>
-        
+    <div class="flex px-4 py-1 justify-center items-center">
+        <div id="nav-bar-title" class="self-name me-auto">Ananta Raha</div>
         <!-- Line 3: Desktop Navigation -->
-        <nav id="desktop-nav-menu" class="hidden md:flex flex-wrap justify-center space-x-2 pt-4">
+        <nav id="desktop-nav-menu" class="hidden flex flex-wrap md:flex justify-center space-x-4">
           <a href="#sec-about" class="nav-link">About</a>
           <a href="#sec-education" class="nav-link">Education</a>
           <a href="#sec-publications" class="nav-link">Publications</a>
-          <a href="#sec-research-projects" class="nav-link">Research Projects</a>
+          <a href="#sec-research" class="nav-link">Research</a>
           <a href="#sec-skills" class="nav-link">Skills</a>
-          <a href="#sec-other-projects" class="nav-link">Other Projects</a>
-          <a href="#sec-awards" class="nav-link">Awards & Conferences</a>
+          <a href="#sec-development" class="nav-link">Development</a>
+          <a href="#sec-achievements" class="nav-link">Achievements</a>
           <a href="#sec-contact" class="nav-link">Contact</a>
           <a href="docs/cv_anantaraha.pdf" class="nav-link no-scroll" download="CV_AnantaRaha.pdf" target="_blank" rel="noopener noreferrer">CV</a>
         </nav>
-      </div>
       <!-- Right side: Mobile Hamburger -->
-      <button id="nav-menu-button" class="md:hidden text-2xl ms-2">
+      <button id="nav-menu-button" class="md:hidden text-xl ms-2 cursor-pointer">
         ☰
       </button>
     </div>
     <!-- Mobile Menu -->
-    <nav id="mobile-nav-menu" class="hidden flex flex-col pt-4 md:hidden">
-      <a href="#sec-about" class="nav-link">About</a>
-      <a href="#sec-education" class="nav-link">Education</a>
-      <a href="#sec-publications" class="nav-link">Publications</a>
-      <a href="#sec-research-projects" class="nav-link">Research Projects</a>
-      <a href="#sec-skills" class="nav-link">Skills</a>
-      <a href="#sec-other-projects" class="nav-link">Other Projects</a>
-      <a href="#sec-awards" class="nav-link">Awards & Conferences</a>
-      <a href="#sec-contact" class="nav-link">Contact</a>
-      <a href="docs/cv_anantaraha.pdf" class="nav-link no-scroll" download="CV_AnantaRaha.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+    <nav id="mobile-nav-menu" class="hidden flex flex-col py-2 md:hidden">
+          <a href="#sec-about" class="nav-link mobile">About</a>
+          <a href="#sec-education" class="nav-link mobile">Education</a>
+          <a href="#sec-publications" class="nav-link mobile">Publications</a>
+          <a href="#sec-research" class="nav-link mobile">Research</a>
+          <a href="#sec-skills" class="nav-link mobile">Skills</a>
+          <a href="#sec-development" class="nav-link mobile">Development</a>
+          <a href="#sec-achievements" class="nav-link mobile">Achievements</a>
+          <a href="#sec-contact" class="nav-link mobile">Contact</a>
+          <a href="docs/cv_anantaraha.pdf" class="nav-link mobile no-scroll" download="CV_AnantaRaha.pdf" target="_blank" rel="noopener noreferrer">CV</a>
     </nav>
   </header>
 
+
   <!-- Main Sections -->
-  <main class=" max-w-[960px] mx-auto">
+  <main class="max-w-[960px] mx-auto px-4 md:px-8">
+
     <!-------------------------------- About -------------------------------->
     <!-------------------------------- About -------------------------------->
     <!-------------------------------- About -------------------------------->
     <section id="sec-about" class="section">
-      <div class="section-title">
-        About Me
-      </div>
       <div class="card">
-        <!-- Computer Vision • Deep Learning • Medical Imaging • Multimodal Learning • Explainable A -->
-        <p class="mb-4">
-          I am Ananta Raha, a CSE graduate with a strong research interest spanning multidisciplinary applications of Computer Vision, Deep Neural Networks, Medical Imaging, Explainable AI, and Multimodal Learning. Particularly, I am motivated by developing trustworthy AI systems that ensure explainability, transparency, and efficiency.
-        </p>
-        <p class="mb-4">
-          Following my undergraduate thesis on computationally-efficient brain tumor segmentation (from MRI), I have researched lightweight CNN architectures in medical diagnosis and precision agriculture. During my master's studies, I worked on independent and team projects in diverse areas like automatic malaria diagnosis, edge-ML for sericulture, neural network privacy, RNA-seq read disambiguation, and human-computer interaction. These experiences have reinforced my skills and perspective on practical ML applications.
-        </p>
-        <p>
-          Currently, my master's thesis focuses on multimodal fusion (Text + Vision) learning to improve radiological segmentation tasks. Additionally, I am actively seeking Ph.D. opportunities where I can contribute to quality research in on-device, trustworthy neural networks for applications in healthcare and precision agriculture.
-        </p>
-        <hr>
-        <!-- Profile links (icons only, raw placeholders for now) -->
-        <div class="text-center">
-          <a href="mailto:ananta.raha.99@gmail.com" class="link-button">[ananta.raha.99@gmail.com]</a>
+        <div class="section-title">
+          About Me
         </div>
-        <div class="text-center space-x-2 md:space-x-4">
-          <a href="https://github.com/anantaraha" title="GitHub" class="link-button" target="_blank" rel="noopener noreferrer">[GitHub]</a>
-          <a href="https://scholar.google.com/citations?user=J1aQxFIAAAAJ" title="Google Scholar" class="link-button" target="_blank" rel="noopener noreferrer">[Scholar]</a>
-          <a href="https://www.linkedin.com/in/anantaraha" title="LinkedIn" class="link-button" target="_blank" rel="noopener noreferrer">[LinkedIn]</a>
-          <a href="https://www.researchgate.net/profile/Ananta-Raha" title="ResearchGate" class="link-button" target="_blank" rel="noopener noreferrer">[ResearchGate]</a>
-          <a href="https://orcid.org/0009-0000-7391-2025" title="ORCID" class="link-button" target="_blank" rel="noopener noreferrer">[ORCID]</a>
-        </div>
-        <hr>
-        <div class="title">Research Interests</div>
-        <!-- Research interest keywords -->
-        <div class="text-center">
-          <span class="chip">Computer Vision</span>
-          <span class="chip">Deep Neural Networks</span>
-          <span class="chip">Medical Imaging</span>
-          <span class="chip">Explainable AI</span>
-          <span class="chip">Edge-ML</span>
-          <span class="chip">Multimodal Learning</span>
-          <span class="chip">Trustworthy AI</span>
+        <div class="separator"></div>
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="w-full md:w-3/11 flex flex-col items-center md:items-end gap-4">
+            <img src="res/photo_me.jpg" alt="Ananta Raha" class="w-1/2 md:w-full rounded-md aspect-square object-cover md:mt-2">
+            <span class="title text-center md:text-right">M.Sc. Student @ BUET<br>B.Sc. in CSE, RUET</span>
+            <div class="flex flex-wrap justify-center md:justify-end gap-4">
+              <a href="mailto:ananta.raha.99@gmail.com" title="Email" class="link-button normal-case">[ananta.raha.99@gmail.com]</a>
+              <a href="https://scholar.google.com/citations?user=J1aQxFIAAAAJ" title="Google Scholar" class="link-button normal-case" target="_blank" rel="noopener noreferrer">[Scholar]</a>
+              <a href="https://orcid.org/0009-0000-7391-2025" title="ORCID" class="link-button normal-case" target="_blank" rel="noopener noreferrer">[ORCID]</a>
+              <a href="https://github.com/anantaraha" title="GitHub" class="link-button normal-case" target="_blank" rel="noopener noreferrer">[GitHub]</a>
+              <a href="https://www.linkedin.com/in/anantaraha" title="LinkedIn" class="link-button normal-case" target="_blank" rel="noopener noreferrer">[LinkedIn]</a>
+              <a href="https://www.researchgate.net/profile/Ananta-Raha" title="ResearchGate" class="link-button normal-case" target="_blank" rel="noopener noreferrer">[ResearchGate]</a>
+            </div>
+            
+          </div>
+          <div class="w-full md:w-8/11 text-justify">
+            <p class="mb-4">
+              I am Ananta Raha, a CSE graduate with a strong research interest spanning Computer Vision, Medical Imaging, and Explainable AI. Particularly, I am motivated by developing trustworthy AI methods that ensure interpretability, efficiency, and privacy.
+            </p>
+            <p class="mb-4">
+              Following my undergraduate thesis on computationally-efficient brain tumor segmentation (from MRI), I have researched lightweight architectures for medical diagnosis and precision agriculture. During my graduate studies, I worked on several independent and team projects in diverse areas, such as inexpensive sericulture, neural network privacy, NGS read disambiguation, and human-computer interaction. These experiences have reinforced my research perspectives and implementation skills.
+            </p>
+            <p>
+              I am actively seeking Ph.D. opportunities that will allow me to extend my foundation in lightweight vision toward impactful research in trustworthy healthcare and agriculture.
+            </p>
+            <div class="flex flex-wrap justify-center pt-4 gap-3">
+              <span class="chip">Computer Vision</span>
+              <span class="chip">Medical Imaging</span>
+              <span class="chip">Edge-ML</span>
+              <span class="chip">Trustworthy AI</span>
+              <span class="chip">Multimodal Learning</span>
+              <span class="chip">Precision Agriculture</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -231,37 +375,38 @@
     <!-------------------------------- Education -------------------------------->
     <!-------------------------------- Education -------------------------------->
     <section id="sec-education" class="section">
-      <div class="section-title">
-        Education
-      </div>
       <div class="card">
-        <!-- BUET MSc -->
-        <div class="flex items-start">
-          <div class="w-30 md:w-40">2024 – Present</div>
-          <div class="flex-1">
-            <strong>M.Sc. in Computer Science and Engineering</strong><br>
-            Bangladesh University of Engineering and Technology (BUET) <a href="http://buet.ac.bd" title="BUET" class="link-button" target="_blank" rel="noopener noreferrer">[Web]</a><br>
+        <div class="section-title">
+          Education
+        </div>
+        <div class="separator"></div>
+
+        <div class="listing-flip pt-0">
+          <div class="date listing-content-first">April 2024 &mdash; Present</div>
+          <div class="inner-box-vbar listing-content-second">
+            <span class="title">M.Sc. in Computer Science and Engineering</span><br>
+            <span class="subtitle">Bangladesh University of Engineering and Technology</span>
+            <hr>
+            <span class="summary">
+              <ins>Thesis advisor:</ins> Dr. Sadia Sharmin<br>
+            </span>
           </div>
         </div>
-        <hr>
-        <!-- RUET BSc -->
-        <div class="flex items-start">
-          <div class="w-30 md:w-40">2018 – 2023</div>
-          <div class="flex-1">
-            <strong>B.Sc. in Computer Science and Engineering</strong><br>
-            Rajshahi University of Engineering & Technology (RUET) <a href="http://ruet.ac.bd" title="RUET" class="link-button" target="_blank" rel="noopener noreferrer">[Web]</a><br>
-            CGPA: <strong>3.54</strong> | CGPA of Last Two Semesters: <strong>3.71</strong><br>
-            Thesis: <i class="text-muted">Automated Detection and Segmentation of Brain Tumor Using Low-Complex RCNN and Modified U-Net</i>
+        
+        <div class="listing-flip">
+          <div class="date listing-content-first">January 2018 &mdash; September 2023</div>
+          <div class="inner-box-vbar listing-content-second">
+            <span class="title">B.Sc. in Computer Science & Engineering</span><br>
+            <span class="subtitle">Rajshahi University of Engineering & Technology</span>
+            <hr>
+            <span class="summary">
+              <ins>CGPA:</ins> <strong>3.54</strong> (Out of 4.00)&ensp;|&ensp;<ins>CGPA of last two years of graduation:</ins> <strong>3.71</strong><br>
+              <ins>Thesis advisor:</ins> Farjana Parvin<br>
+              <ins>Thesis:</ins> &ldquo;Automated Detection and Segmentation of Brain Tumor Using Low-Complex RCNN and Modified U-Net.&rdquo;
+            </span>
           </div>
         </div>
-      </div>
-      <!-- IELTS -->
-      <div class="card">
-        <div class="title">Language Proficiency</div>
-        <hr>
-        <ul class="list-u">
-          <li><strong>IELTS: 7.0</strong> (<i class="text-muted">Listening 7.0, Reading 7.0, Writing 6.5, Speaking 6.5</i>)</li>
-        </ul>
+        
       </div>
     </section>
 
@@ -269,152 +414,40 @@
     <!-------------------------------- Publications -------------------------------->
     <!-------------------------------- Publications -------------------------------->
     <section id="sec-publications" class="section">
-      <div class="section-title">Publications</div>
+
       <div class="card">
-        <ul class="list">
-          <!-- Example: Latest publication first -->
-          <li>
-            <strong>Raha, A.</strong> Lightweight COVID-19 Detection from Chest CT-Scans Using Attention-Based CNN. <i>SN Computer Science</i>, Vol. 6, 853 (2025). <i>DOI: <a href="https://doi.org/10.1007/s42979-025-04403-5" title="DOI" target="_blank" rel="noopener noreferrer">10.1007/s42979-025-04403-5</a></i>
-            <a href="https://rdcu.be/eIeLu" title="Preprint" class="link-button" download="Lightweight COVID-19 Detection from Chest CT-Scans Using Attention-Based CNN.pdf" target="_blank" rel="noopener noreferrer">[Read Online]</a>
-          </li>
-          <hr>
-          <li>
-            <strong>Raha, A.</strong> and Q. S. Tasnim. Efficient Mulberry Leaf Disease Detection in Bangladesh: A Lightweight Approach for Real-Time Applications. <i>2025 International Conference on Electrical, Computer and Communication Engineering (ECCE)</i>, Chittagong, Bangladesh, 2025, pp. 1-6, <i>DOI: <a href="https://doi.org/10.1109/ECCE64574.2025.11013948" title="DOI" target="_blank" rel="noopener noreferrer">10.1109/ECCE64574.2025.11013948</a></i>
-            <a href="docs/preprint_raha2025mulberry.pdf" title="Preprint" class="link-button" download="Efficient Mulberry Leaf Disease Detection in Bangladesh A Lightweight Approach for Real-Time Applications.pdf" target="_blank" rel="noopener noreferrer">[Download Preprint]</a>
-          </li>
-          <hr>
-          <li>
-            <strong>Raha, A.</strong>, Parvin, F., Jannat, T. (2024). Brain Tumor Segmentation with Efficient and Low-Complex Architecture Using RCNN and Modified U-Net. In: Arefin, M.S., Kaiser, M.S., Bhuiyan, T., Dey, N., Mahmud, M. (eds) Proceedings of the 2nd International Conference on Big Data, IoT and Machine Learning. BIM 2023. <i>Lecture Notes in Networks and Systems</i>, vol 867. Springer, Singapore. <i>DOI: <a href="https://doi.org/10.1007/978-981-99-8937-9_22" title="DOI" target="_blank" rel="noopener noreferrer">10.1007/978-981-99-8937-9_22</a></i>
-              <a href="docs/preprint_raha2023.pdf" title="Preprint" class="link-button" download="Brain Tumor Segmentation with Efficient and Low-Complex Architecture Using RCNN and Modified U-Net.pdf" target="_blank" rel="noopener noreferrer">[Download Preprint]</a>
-            </li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="title">Currently in Press</div>
+        <div class="section-title">Publications</div>
+        <div class="separator"></div>
+
+        <!-- Published Subsection -->
+        <div class="subsection flex-col pt-0" id="subsec-publications-published">
+          <div class="subsection-title">Published:</div>
+        </div>
+
         <hr>
-        <ul class="list-u">
-          <li>
-            <strong>Raha, A.</strong>, Ahmed, J., Hossain, M.S., Majumdar, S. (2025). Defending Model Inversion Attack Using an Improved Filter-Based Approach. (<strong>Accepted</strong>, to appear; <i>18th Intl. Symp. on Foundations & Practice of Security–Brest, France</i>)
-          </li>
-          <hr>
-          <li>
-            Datta, S., <strong>Raha, A.</strong>, Sharmin, S. (2025). The Body’s Whisper: A Privacy-Preserving, Reason-Aligned Micro-Break Assistant for Remote Workers. (<strong>Accepted</strong>, to appear; <i>28th Intl. Conf. on Human-Computer Interaction–Montreal, Canada</i>)
-          </li>
-        </ul>
-      </div>
+
+        <!-- Accepted Subsection -->
+        <div class="subsection flex-col" id="subsec-publications-accepted">
+          <div class="subsection-title">Accepted for Publication:</div>
+        </div>
+
+        <hr>
+
+        <!-- Review Subsection -->
+        <div class="subsection flex-col" id="subsec-publications-review">
+          <div class="subsection-title">Under Review:</div>
+        </div>
+
     </section>
 
-    <!-------------------------------- Research Projects -------------------------------->
-    <!-------------------------------- Research Projects -------------------------------->
-    <!-------------------------------- Research Projects -------------------------------->
-    <section id="sec-research-projects" class="section">
-      <div class="section-title">Research Projects</div>
+    <!-------------------------------- Research -------------------------------->
+    <!-------------------------------- Research -------------------------------->
+    <!-------------------------------- Research -------------------------------->
+    <section id="sec-research" class="section">
 
-      <!-- Project 1 -->
       <div class="card">
-        <div class="title">Ambiguity Resolution in Multi-Mapping Short Reads Using Deep Neural Networks</div>
-        <p class="chip-group">
-          <span class="chip">2025</span> <span class="chip">Postgraduate</span> <span class="chip">Collaborative</span>
-          <a href="https://github.com/anantaraha/buet_cse6411_project" title="Source" class="link-button ml-auto" target="_blank" rel="noopener noreferrer">[View Source]</a>
-        </p>
-        <hr>
-        <p class="text-muted"><i><strong>Keywords:</strong> Sequencing, Gene Expression, Illumina, Computational Biology, Short Reads, MLP</i></p>
-        <p>
-          NGS technologies produce short reads that are aligned to a reference genome for downstream analysis. In paired-end mode, some reads map to multiple loci, introducing ambiguity. This project minimizes that issue with an MLP-based filter that predicts and discards incorrect alignments of multi-mapping reads reported by the aligner. The approach derives context-aware features—including read coverage, RNA-seq, and k-mers. Evaluated on Bowtie2 alignments for two reference genomes (<i>Escherichia coli</i> and <i>Bacillus subtilis</i>), the trained classifier reduces the overall misalignment rate by substantial margins.
-        </p>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="card">
-        <div class="title">Gamification in Online Learning Platforms – An HCI-Focused Study on Bangladeshi University Students</div>
-        <p class="chip-group"><span class="chip">2025</span> <span class="chip">Postgraduate</span> <span class="chip">Collaborative</span></p>
-        <hr>
-        <p class="text-muted"><i><strong>Keywords:</strong> Human-Computer Interaction, Gamification, Learning, Social Interaction</i></p>
-        <p>
-          Most online learning platforms in Bangladesh have reduced learner engagement due to various factors, including gamification, which is a major one. This project surveys 209 university students to filter out the learner’s perspective on gamified features and engagement. Afterwards, it inspects and analyzes the low-tier platforms to technically suggest the significance of each feature. These insights will help current and future learning platforms by systematically highlighting the evident factors in learner engagement.
-        </p>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="card">
-        <div class="title">Ultra-lightweight Approach for Efficient Mulberry Leaf Disease Detection in Bangladesh</div>
-        <p class="chip-group">
-          <span class="chip">2024</span> <span class="chip">Postgraduate</span> <span class="chip">Collaborative</span>
-          <a href="https://github.com/anantaraha/buet_cse6506_project" title="Source" class="link-button ml-auto" target="_blank" rel="noopener noreferrer">[View Source]</a>
-          <a href="docs/preprint_raha2025mulberry.pdf" title="Paper" class="link-button" download="Efficient Mulberry Leaf Disease Detection in Bangladesh A Lightweight Approach for Real-Time Applications.pdf" target="_blank" rel="noopener noreferrer">[Download Paper]</a>
-        </p>
-        <hr>
-        <p class="text-muted"><i><strong>Keywords:</strong> Sericulture, Leaf Disease, Data Mining, Classification, Deep Learning</i></p>
-        <p>
-          The project develops an efficient classification model to accurately identify mulberry leaf diseases, supporting sericulture in rural areas of Bangladesh. We utilized a regional dataset containing mulberry leaf images captured from Rajshahi, the principal sericulture region in Bangladesh. We performed explainability analysis and assessed the impact of preprocessing techniques on classification outcomes. While state-of-the-art models tend to be computationally expensive, our architecture, having only 145K parameters, remains surprisingly lightweight and outperforms the base MobileNetV2 model in our experiments.
-        </p>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="card">
-        <div class="title">Defending Model Inversion Attack using An Improved Filter-Based Approach</div>
-        <p class="chip-group">
-          <span class="chip">2025</span> <span class="chip">Postgraduate</span> <span class="chip">Collaborative</span>
-          <a href="https://github.com/anantaraha/buet_cse6813_project" title="Source" class="link-button ml-auto" target="_blank" rel="noopener noreferrer">[View Source]</a>
-        </p>
-        <hr>
-        <p class="text-muted"><i><strong>Keywords:</strong> Neural Network Security, Defense</i></p>
-        <p>
-          The project develops an efficient defense mechanism against model inversion attacks that exploit the confidentiality of training data in neural networks. While existing techniques primarily require modifications to the trained models or even retraining, our robust approach does not alter existing architectures. Moreover, it works against various types of attacks, including the invincible label-only attacks.
-        </p>
-      </div>
-
-      <!-- Project 5 -->
-      <div class="card">
-        <div class="title">Efficient and Automated Malaria Diagnosis from Blood Smears with Deep Learning</div>
-        <p class="chip-group">
-          <span class="chip">2024</span> <span class="chip">Postgraduate</span> <span class="chip">Collaborative</span>
-          <a href="https://github.com/anantaraha/buet_cse6709_project" title="Source" class="link-button ml-auto" target="_blank" rel="noopener noreferrer">[View Source]</a>
-        </p>
-        <hr>
-        <p class="text-muted"><i><strong>Keywords:</strong> Blood Smear, Pathological Diagnosis, Classification, Deep Learning</i></p>
-        <p>
-          This project presents a cascaded three-stage localization and classification architecture to effectively identify the lifecycle of malaria parasites in full-slide microscopic blood smear images. The novelty lies in its end-to-end automated workflow, while existing works require pathologist-aided cell extraction. In addition, it is less complex compared to expensive SOTA classification and object detection models.
-        </p>
-      </div>
-
-      <!-- Project 6 -->
-      <div class="card">
-        <div class="title">Lightweight COVID-19 Detection from Chest CT-Scans Using Attention-Based CNN</div>
-        <p class="chip-group">
-          <span class="chip">2024</span> <span class="chip">Independent</span> <span class="chip">Individual</span>
-          <a href="https://rdcu.be/eIeLu" title="Paper" class="link-button ml-auto" target="_blank" rel="noopener noreferrer">[Read Paper]</a>
-        </p>
-        <hr>
-        <p class="text-muted"><i><strong>Keywords:</strong> Medical Imaging, Computer Vision, Deep Learning, Classification</i></p>
-        <p>
-          A lightweight CNN architecture to identify COVID-19 in Chest CT scans. Despite having minimal trainable weights, it shows superior performance in the experiments.
-        </p>
-      </div>
-
-      <!-- Project 7 -->
-      <div class="card">
-        <div class="title">Brain Tumor Segmentation with Efficient and Low-Complex Architecture Using RCNN and Modified U-Net</div>
-        <p class="chip-group">
-          <span class="chip">2023</span> <span class="chip">Undergraduate</span> <span class="chip">Individual</span>
-          <a href="docs/preprint_raha2023.pdf" title="Paper" class="link-button ml-auto" download="Brain Tumor Segmentation with Efficient and Low-Complex Architecture Using RCNN and Modified U-Net.pdf" target="_blank" rel="noopener noreferrer">[Download Paper]</a>
-        </p>
-        <hr>
-        <p class="text-muted"><i><strong>Keywords:</strong> Tumor Segmentation, RCNN, U-Net, Less-complex</i></p>
-        <p>
-          This project was a part of my undergraduate thesis. It develops an efficient technique for precisely segmenting tumor regions from brain MRIs. The two-stage approach consists of RCNN and a modified U-Net. The proposed system is low-complex with a small number of parameters and exhibits remarkable performance compared to other existing architectures.
-        </p>
-      </div>
-
-      <!-- Project 8 -->
-      <div class="card">
-        <div class="title">Efficient and Automated Sericulture Using IoT and Machine Learning</div>
-        <p class="chip-group"><span class="chip">2022</span> <span class="chip">Undergraduate</span> <span class="chip">Collaborative</span></p>
-        <hr>
-        <p class="text-muted"><i><strong>Keywords:</strong> Data Preprocessing, IoT, Embedded Systems</i></p>
-        <p>
-          The project constructs a low-cost IoT-enabled system for continuous monitoring and nurturing of silkworms, which is crucial for producing silk in the sericulture industry. It also evaluates the applicability in potential regions in Bangladesh.
-        </p>
+        <div class="section-title">Research Projects</div>
+        <div class="separator"></div>
       </div>
 
     </section>
@@ -423,182 +456,77 @@
     <!-------------------------------- Skills -------------------------------->
     <!-------------------------------- Skills -------------------------------->
     <section id="sec-skills" class="section">
-      <div class="section-title">Technical Skills</div>
 
-      <div class="sticky">
-        <div class="card">
-          <p class="title">Research Experience</p>
-          <hr>
-          <ul class="list-u">
-            <li>Machine Learning, Computer Vision, Medical Imaging</li>
-            <li><i class="text-muted"><strong>OpenCV, TensorFlow, PyTorch</strong>, etc.</i></li>
-          </ul>
-        </div>
-        <div class="card">
-          <p class="title">Mobile Application Development</p>
-          <hr>
-          <ul class="list-u">
-            <li><strong>7 years</strong> of experience</li>
-            <li><i class="text-muted">Software support and maintenance</i></li>
-          </ul>
-        </div>
-        <div class="card">
-          <p class="title">Practical Experience in IoT</p>
-          <hr>
-          <ul class="list-u">
-            <li><i class="text-muted">Programming in <strong>Arduino, ESP32</strong>, etc.</i></li>
-          </ul>
-        </div>
-        <div class="card">
-          <p class="title">Programming Languages</p>
-          <hr>
-          <ul class="list-u">
-            <li><i class="text-muted">C/C++, Java, Python, JavaScript, Assembly</i></li>
-          </ul>
-        </div>
-        <div class="card">
-          <p class="title">Software Skills</p>
-          <hr>
-          <ul class="list-u">
-            <li><i class="text-muted"><strong>LaTeX, Microsoft Word, Excel, PowerPoint, MATLAB</strong>, etc.</i></li>
-            <li><i class="text-muted">Fast touch typing – <strong>90 words per minute</strong></i></li>
-          </ul>
-        </div>
-        <div class="card">
-          <p class="title">Web Development & Scraping</p>
-          <hr>
-          <ul class="list-u">
-            <li><i class="text-muted"><strong>BeautifulSoup4, Django, TailwindCSS, jQuery</strong>, etc.</i></li>
-          </ul>
-        </div>
-      </div>
-
-    </section>
-    
-    <!-------------------------------- Other Projects -------------------------------->
-    <!-------------------------------- Other Projects -------------------------------->
-    <!-------------------------------- Other Projects -------------------------------->
-    <section id="sec-other-projects" class="section">
-      <div class="section-title">Other Projects</div>
-
-      <!-- Project 1 -->
       <div class="card">
-        <div class="title">MyMoney – Personal Finance Management Application</div>
-        <p class="chip-group">
-          <span class="chip">2019 – Present</span> <span class="chip">Hobby</span> <span class="chip">Android App</span>
-          <a href="https://play.google.com/store/apps/details?id=com.raha.app.mymoney.free&hl=en" title="Store" class="link-button ml-auto" target="_blank" rel="noopener noreferrer">[Google Play Store]</a>
-        </p>
-        <hr>
-        <p>
-          With my knowledge of OOP and Java, I developed this hobby project, which has become one of the most popular finance apps on the Google Play Store, with over 1 million active users worldwide. Over the years, I have consistently maintained it, which has allowed me to learn the fundamentals of software testing and lifecycle management.
-        </p>
-      </div>
+        <div class="section-title">Skills</div>
+        <div class="separator"></div>
 
-      <!-- Project 2 -->
-      <div class="card">
-        <div class="title">MorseBuddy – Decode Morse Code from Blinking Light Signals</div>
-        <p class="chip-group">
-          <span class="chip">2022</span> <span class="chip">Hobby</span> <span class="chip">Android App</span>
-          <a href="https://github.com/anantaraha/morsebuddy" title="Source" class="link-button ml-auto" target="_blank" rel="noopener noreferrer">[View Source]</a>
-        </p>
-        <hr>
-        <p>
-          Inspired by the idea of interpreting Morse signals at night, I developed this app to decode Morse code from blinking lights using the mobile camera. It seamlessly handles human timing errors to decode in real time, leveraging Android's CameraX library. It samples captured frames at a fixed rate, intelligently measures dot, dash, and space durations. Finally, it maps them to text using the Morse code table – all in real time.
-        </p>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="card">
-        <div class="title">Shopkeeper – Shop Management Utility</div>
-        <p class="chip-group">
-          <span class="chip">2021</span> <span class="chip">Undergraduate</span> <span class="chip">Individual</span> <span class="chip">Web Development</span>
-          <a href="https://github.com/anantaraha/shopkeeper" title="Source" class="link-button ml-auto" target="_blank" rel="noopener noreferrer">[View Source]</a>
-        </p>
-        <hr>
-        <p><i><strong>Keywords:</strong> Project, Android App, Management</i></p>
-        <p>
-          I developed this web-based software as part of the CSE 3100 undergraduate project. It simulates the workflow of a supermarket management tool, featuring dedicated terminals for cashier operations, inventory administration, and analytics. Built with Django as the backend and Bootstrap for the frontend UI, the system integrates core functionalities like billing, stock tracking, sales analysis, and authorization.
-        </p>
-      </div>
-    
-    </section>
-
-    <!-------------------------------- Awards -------------------------------->
-    <!-------------------------------- Awards -------------------------------->
-    <!-------------------------------- Awards -------------------------------->
-    <section id="sec-awards" class="section">
-      <div class="section-title">Awards & Conferences</div>
-
-      <!-- Awards Subsection -->
-      <div class="card">
-        <div class="title">Awards Receieved</div>
-        <hr>
-        <ul class="list">
-          <li><strong>Fellowship – BUET MSc Program</strong> (Semester: October 2024) in recognition of academic excellence.</li>
-          <hr>
-          <li><strong>Education Board Scholarship</strong> (2017, 2015, 2012) for excellence in the <i>HSC, SSC, and JSC Examinations</i>, respectively.</li>
-          <hr>
-          <li><strong>Specialization: Python for Everybody</strong> – <i>University of Michigan</i> (2020); <a href="https://coursera.org/share/0713042c2ad15eefb3096ccc92d01d3e" title="Certificate" class="link-button" target="_blank" rel="noopener noreferrer">[Verify Certificate]</a></li>
-          <hr>
-          <li><strong>Regular Expressions in Python</strong> – <i>Coursera</i> (2022); <a href="https://coursera.org/share/a28b831645a16181e65b7c2f12f4ba9b" title="Certificate" class="link-button" target="_blank" rel="noopener noreferrer">[Verify Certificate]</a></li>
-          <hr>
-          <li><strong>Participant at National Science Olympiad, Dhaka</strong> (2014) – Secured 34th position nation-wide.</li>
-        </ul>
-      </div>
-
-      <!-- Certifications & Conferences Subsection -->
-      <div class="card">
-        <div class="title">Conferences Attended</div>
-        <hr>
-        <div class="flex items-start">
-          <div class="w-18 md:w-24">2025</div>
-          <div class="flex-1">
-            <strong>18th International Symposium on Foundations & Practice of Security</strong><br>
-            Nov 25-27, Brest, France<br>
-            <i class="text-muted"><strong>Presented research:</strong> “Defending Model Inversion Attack Using an Improved Filter-Based Approach.”</i>
-          </div>
+        <div class="columns-1 sm:columns-2 gap-4 md:gap-8 [column-fill:_balance] pt-2" id="grid-skills">
         </div>
-        <hr>
-        <div class="flex items-start">
-          <div class="w-18 md:w-24">2025</div>
-          <div class="flex-1">
-            <strong>2025 International Conference on Electrical, Computer and Communication Engineering</strong><br>
-            Feb 13-15, CUET, Bangladesh<br>
-            <i class="text-muted"><strong>Presented research:</strong> “Efficient Mulberry Leaf Disease Detection in Bangladesh: A Lightweight Approach for Real-Time Applications.”</i>
-            <a href="docs/cert_conf_ecce2025.pdf" title="Certificate" class="link-button" download="Certificate_AnantaRaha_ECCE2025" target="_blank" rel="noopener noreferrer">[View Certificate]</a>
-          </div>
-        </div>
-        <hr>
-        <div class="flex items-start">
-          <div class="w-18 md:w-24">2023</div>
-          <div class="flex-1">
-            <strong>2nd International Conference on Big Data, IoT and Machine Learning</strong><br>
-            Sep 6-8, Dhaka, Bangladesh<br>
-            <i class="text-muted"><strong>Presented research:</strong> “Brain Tumor Segmentation with Efficient and Low-Complex Architecture Using RCNN and Modified U-Net.”</i>
-            <a href="docs/cert_conf_bim2023.pdf" title="Certificate" class="link-button" download="Certificate_AnantaRaha_BIM2023" rel="noopener noreferrer">[View Certificate]</a>
-          </div>
-        </div>
-      </div>
 
     </section>
 
-    <!-------------------------------- Contact -------------------------------->
-    <!-------------------------------- Contact -------------------------------->
-    <!-------------------------------- Contact -------------------------------->
+    <!-------------------------------- Development -------------------------------->
+    <!-------------------------------- Development -------------------------------->
+    <!-------------------------------- Development -------------------------------->
+    <section id="sec-development" class="section">
+      <div class="card">
+        <div class="section-title">Development Projects</div>
+        <div class="separator"></div>
+      </div>
+    </section>
+
+    <!-------------------------------- Achievements -------------------------------->
+    <!-------------------------------- Achievements -------------------------------->
+    <!-------------------------------- Achievements -------------------------------->
+    <section id="sec-achievements" class="section">
+
+      <div class="card">
+        <div class="section-title">Achievements</div>
+        <div class="separator"></div>
+
+        <!-- Scholarships Subsection -->
+        <div class="subsection flex-col pt-0" id="subsec-achievements-scholarships">
+          <div class="subsection-title">Scholarships:</div>
+        </div>
+
+        <hr>
+
+        <!-- Conference Presentations -->
+        <div class="subsection flex-col" id="subsec-achievements-conferences">
+          <div class="subsection-title">Conference Presentations:</div>
+          <div class="subsection-title"></div>
+        </div>
+
+        <hr>
+
+        <!-- Certifications -->
+        <div class="subsection flex-col" id="subsec-achievements-certifications">
+          <div class="subsection-title">Certifications:</div>
+        </div>
+
+    </section>
+
     <section id="sec-contact" class="section">
-      <div class="section-title">Contact</div>
-      <div class="card text-center">
-        <p>Email: <a href="mailto:ananta.raha.99@gmail.com">ananta.raha.99@gmail.com</a></p>
-        <p>Dhaka 1205, Bangladesh</p>
-        <hr>
-        <p>Feel free to reach out for research collaborations or inquiries.</p>
+      <div class="card">
+        <div class="section-title">Contact Me</div>
+        <div class="separator"></div>
+        I am open to research collaborations and discussions. For any queries, feel free to reach out.
+        <div class="listing">
+          <div class="listing-content-first date">Email:</div>
+          <div class="listing-content-second inner-box-vbar">
+            <a href="mailto:ananta.raha.99@gmail.com" class="link">ananta.raha.99@gmail.com</a>
+          </div>
+        </div>
       </div>
-
     </section>
+
   </main>
 
-  <footer class="text-center py-2 md:py-4 text-sm md:text-base text-[var(--color-t-3)] bg-[var(--color-sf)]">
-    © 2025 Ananta Raha. All rights reserved.
+
+
+  <footer class="text-center py-2 md:py-4 mt-4 text-sm md:text-base text-[var(--color-txt3)] bg-[var(--color-sf)]">
+    © 2026 Ananta Raha. All rights reserved.
   </footer>
 
 </body>

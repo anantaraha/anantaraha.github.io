@@ -1,0 +1,139 @@
+[
+  {
+    "type": "research",
+    "title": "Defending Model Inversion Attack Using an Improved Filter-Based Approach",
+    "tags": ["2025", "graduate", "collaborative"],
+    "keywords": ["Model Security", "Privacy", "Defense", "Adversarial Attack"],
+    "code": {
+      "link": "https://github.com/anantaraha/buet_cse6813_project",
+      "text": "View Code"
+    },
+    "paper": {
+      "link": "docs/preprint_raha2025mia.pdf",
+      "text": "Get Paper"
+    },
+    "thumbnail": "res/thumb_project_mia.png",
+    "summary": "A model inversion attack exploits neural network architectures to reconstruct private training data through iterative inferences. Existing defense techniques involve expensive modifications to the deployed models or even retraining. This research proposes a modular, universal defense mechanism that filters out malicious requests without tinkering with cloud model architecture. Experimental results justify its effectiveness, with mean defense accuracies of 90.00% and 95.83% on two public datasets, respectively."
+  },
+  {
+    "type": "research",
+    "title": "Ambiguity Resolution in Multi-Mapping Short Reads Using Deep Neural Networks",
+    "tags": ["2025", "graduate", "collaborative"],
+    "keywords": ["NGS", "Illumina", "Computational Biology", "Short Reads", "MLP"],
+    "code": {
+      "link": "https://github.com/anantaraha/buet_cse6411_project",
+      "text": "View Code"
+    },
+    "paper": {
+      "link": "",
+      "text": ""
+    },
+    "thumbnail": "res/thumb_project_mmr.png", 
+    "summary": "NGS technologies produce short reads that are aligned to a reference genome for downstream analysis. In paired-end mode, some reads map to multiple loci, introducing ambiguity. Aligner-specific resolution schemes can yield incorrect mappings, degrading analysis quality. This project utilizes an MLP-based filter that predicts and discards incorrect alignments of multi-mapping reads reported by the aligner. The approach derives context-aware features, such as read coverage, RNA-seq, and k-mers. Evaluated on Bowtie2 alignments for two references (<em>E. coli</em> and <em>B. subtilis</em>), the trained classifier reduces the overall misalignment rate substantially."
+  },
+  {
+    "type": "research",
+    "title": "Lightweight COVID-19 Detection from Chest CT-Scans Using Attention-Based CNN",
+    "tags": ["2024", "independent", "individual"],
+    "keywords": ["Medical Imaging", "CT", "VGG-19", "Classification", "Attention"],
+    "code": { 
+      "link": "",
+      "text": ""
+    },
+    "paper": {
+      "link": "https://rdcu.be/eIeLu",
+      "text": "Read Paper"
+    },
+    "thumbnail": "res/thumb_project_covid.png",
+    "summary": "A lightweight, attention-based CNN to identify COVID-19 from Chest CT scans. Despite having minimal trainable weights, it demonstrates superior performance compared to existing baselines in our experiments. Its inference takes a minimal 0.25s on a consumer device without GPU support. Model decisions are examined with XAI techniques, such as GradCAM and SHAP."
+  },
+  {
+    "type": "research",
+    "title": "Ultra-lightweight Mulberry Leaf Disease Detection in Bangladesh",
+    "tags": ["2024", "graduate", "collaborative"],
+    "keywords": ["Sericulture", "Classification", "Explainability", "Leaf Dataset", "MobileNetV2"],
+    "code": { 
+      "link": "https://github.com/anantaraha/buet_cse6506_project",
+      "text": "View Code"
+    },
+    "paper": { 
+      "link": "docs/preprint_raha2025mulberry.pdf",
+      "text": "Get Paper"
+    },
+    "thumbnail": "res/thumb_project_mulberry.png",
+    "summary": "This research introduces an ultra-lightweight CNN (based on MobileNetV2 and SE) to classify mulberry leaf images among three categories: leaf spot, leaf rust, and disease-free. We used a publicly available leaf image dataset from Rajshahi, the principal sericulture region in Bangladesh. After 5-fold cross-validation, our model outperformed the baseline MobileNetV2, achieving accuracy, recall, precision, and F1-scores of over 93.5%. Its 145K parameters make it up to 16x lighter than the baseline models on this dataset. Additionally, Grad-CAM validates the model's decisions."
+  },
+  {
+    "type": "research",
+    "title": "Gamification in E-Learning: An HCI-Focused Study on Bangladeshi University Students",
+    "tags": ["2025", "graduate", "collaborative"],
+    "keywords": ["Human-Computer Interaction", "Gamification", "Online Learning", "Learner Engagement", "Survey", "Social Interaction"],
+    "code": { "link": "", "text": "" },
+    "paper": { "link": "", "text": "" },
+    "thumbnail": "res/thumb_project_gamification.png",
+    "summary": "Most online learning platforms in Bangladesh have reduced learner engagement due to various factors, including gamification, which is a major one. This project surveys 209 university students to capture the learner’s perspective on gamified features and engagement. Afterwards, it inspects and analyzes the low-tier platforms to technically suggest the significance of each feature. These insights will help current and future learning platforms by systematically highlighting the evident factors in learner engagement." 
+  },
+  {
+    "type": "research",
+    "title": "Less-Complex Brain Tumor Segmentation Using Two-Channel CNN and Reduced U-Net",
+    "tags": ["2023", "undergraduate", "individual", "part of thesis"],
+    "keywords": ["Segmentation", "MRI", "Low-Complexity", "Medical Imaging"],
+    "code": { "link": "", "text": "" },
+    "paper": {
+      "link": "docs/preprint_raha2023brain.pdf",
+      "text": "Get Paper"
+    },
+    "thumbnail": "res/thumb_project_brain.png",
+    "summary": "The research develops an efficient technique for precisely segmenting tumors from brain MRI images. The two-stage approach utilizes a compact RCNN and a reduced U-Net to detect tumor regions and segment precisely. It minimizes the effective parameter count by roughly four times (≈8M) compared to the baseline U-Net. This approach achieved dice and IoU scores of 94.53% and 89.76%, respectively, on a publicly available Figshare dataset, outperforming the base U-Net for the same configuration."
+  },
+  {
+    "type": "research",
+    "title": "Deep Learning Based End-to-End Malaria Diagnosis from Full-Slide Blood Smears",
+    "tags": ["2024", "graduate", "collaborative"],
+    "keywords": ["Blood Smear", "Microscopy", "Pathological Diagnosis", "Computer Vision"],
+    "code": {
+      "link": "https://github.com/anantaraha/buet_cse6813_project",
+      "text": "View Code"
+    },
+    "paper": { "link": "", "text": "" },
+    "thumbnail": "res/thumb_project_malaria.png",
+    "summary": "This project presents a cascaded three-stage localization and classification architecture to automatically identify the lifecycle of malaria parasites in full-slide microscopic blood smear images. The novelty lies in its end-to-end workflow, eliminating the need for pathological expertise and having a less complex architecture compared to expensive SOTA classification and object detection models. During cell extraction, it also handles the class imbalance issue by applying CHT over localized patches."
+  },
+  {
+    "type": "research",
+    "title": "IoT-Based Efficient Sericulture",
+    "tags": ["2022", "undergraduate", "collaborative"],
+    "keywords": ["IoT", "Embedded Systems", "Silkworm Rearing", "Monitoring", "Data Preprocessing"],
+    "code": { "link": "", "text": "" },
+    "paper": { "link": "", "text": "" },
+    "summary": "The project develops an inexpensive, IoT-enabled prototype for continuous monitoring and nurturing of silkworms, which is crucial for the silk industry. It also evaluates the applicability in potential regions in Bangladesh."
+  },
+
+  
+
+
+  {
+    "type": "development",
+    "title": "MyMoney: Personal Finance Management App",
+    "tags": ["2019&mdash;present", "hobby", "android"],
+    "paper": { "link": "https://play.google.com/store/apps/details?id=com.raha.app.mymoney.free", "text": "Visit Store" },
+    "thumbnail": "res/thumb_project_mymoney.png",
+    "summary": "With my introduction to OOP and Java during my freshman year, I developed this hobby project and published it on the Google Play Store in November 2019. It is now one of the most popular finance management apps on the store, with over 1 million active users worldwide. Over the years, I have consistently improved it through regular updates and automated testing, which has allowed me to keep pace with the ever-changing development stack and learn the fundamentals of software testing."
+  },
+  {
+    "type": "development",
+    "title": "MorseBuddy: Decode Morse Code from Blinking Lights",
+    "tags": ["2022", "hobby", "android"],
+    "code": { "link": "https://github.com/anantaraha/morsebuddy", "text": "View Code" },
+    "thumbnail": "res/thumb_project_morsebuddy.png",
+    "summary": "Inspired by the idea of interpreting Morse signals at night, I developed this app to decode blinking lights using the mobile camera. It seamlessly handles human timing errors to decode in real time, leveraging Android's CameraX library. It samples captured frames at a fixed rate, intelligently measures dot, dash, and space durations. Finally, it maps them to text using the Morse code table—all in real time."
+  },
+  {
+    "type": "development",
+    "title": "Shopkeeper: Grocery Management Software",
+    "tags": ["2021", "undergraduate", "web"],
+    "code": { "link": "https://github.com/anantaraha/shopkeeper", "text": "View Code" },
+    "thumbnail": "res/thumb_project_shopkeeper.png",
+    "summary": "I built this as my fifth-semester undergraduate Web Development project. I used the Django framework for the backend and built the frontend with basic Bootstrap and HTML. The system offers several essential modules for managing a grocery shop, including a cashier terminal, inventory management, and curated insights."
+  }
+]
