@@ -13,13 +13,13 @@
       "text": "Get Paper"
     },
     "thumbnail": "res/thumb_project_mia.png",
-    "summary": "A model inversion attack exploits neural network architectures to reconstruct private training data through iterative inferences. Existing defense techniques involve expensive modifications to the deployed models or even retraining. This research proposes a modular, universal defense mechanism that filters out malicious requests without tinkering with cloud model architecture. Experimental results justify its effectiveness, with mean defense accuracies of 90.00% and 95.83% on two public datasets, respectively."
+    "summary": "A model inversion attack exploits neural network architectures to reconstruct private training data through iterative inferences. Existing defenses involve expensive modifications to the deployed models or even retraining. We propose a modular, universal defense mechanism that filters out malicious queries without altering the model architecture. Experimental results demonstrate its effectiveness, with mean defense accuracies of 90.00% and 95.83% on two public datasets, respectively."
   },
   {
     "type": "research",
     "title": "Ambiguity Resolution in Multi-Mapping Short Reads Using Deep Neural Networks",
     "tags": ["2025", "graduate", "collaborative"],
-    "keywords": ["NGS", "Illumina", "Computational Biology", "Short Reads", "MLP"],
+    "keywords": ["NGS", "Illumina", "Computational Biology", "MLP"],
     "code": {
       "link": "https://github.com/anantaraha/buet_cse6411_project",
       "text": "View Code"
@@ -29,7 +29,7 @@
       "text": ""
     },
     "thumbnail": "res/thumb_project_mmr.png", 
-    "summary": "NGS technologies produce short reads that are aligned to a reference genome for downstream analysis. In paired-end mode, some reads map to multiple loci, introducing ambiguity. Aligner-specific resolution schemes can yield incorrect mappings, degrading analysis quality. This project utilizes an MLP-based filter that predicts and discards incorrect alignments of multi-mapping reads reported by the aligner. The approach derives context-aware features, such as read coverage, RNA-seq, and k-mers. Evaluated on Bowtie2 alignments for two references (<em>E. coli</em> and <em>B. subtilis</em>), the trained classifier reduces the overall misalignment rate substantially."
+    "summary": "In NGS paired-end mode, some short reads map to multiple loci, introducing ambiguity. Aligner-specific resolution schemes can yield incorrect mappings that degrade downstream analysis. This project utilizes an MLP-based filter that discards incorrect alignments of multi-mapping reads reported by the aligner. The approach derives context-aware features, such as read coverage, RNA-seq, and k-mers. Evaluated on Bowtie2 alignments for two references (<em>E. coli</em> and <em>B. subtilis</em>), the trained classifier substantially reduces the overall misalignment rate."
   },
   {
     "type": "research",
@@ -51,7 +51,7 @@
     "type": "research",
     "title": "Ultra-lightweight Mulberry Leaf Disease Detection in Bangladesh",
     "tags": ["2024", "graduate", "collaborative"],
-    "keywords": ["Sericulture", "Classification", "Explainability", "Leaf Dataset", "MobileNetV2"],
+    "keywords": ["Sericulture", "Classification", "Explainability", "MobileNetV2"],
     "code": { 
       "link": "https://github.com/anantaraha/buet_cse6506_project",
       "text": "View Code"
@@ -71,7 +71,7 @@
     "code": { "link": "", "text": "" },
     "paper": { "link": "", "text": "" },
     "thumbnail": "res/thumb_project_gamification.png",
-    "summary": "Most online learning platforms in Bangladesh have reduced learner engagement due to various factors, including gamification, which is a major one. This project surveys 209 university students to capture the learner’s perspective on gamified features and engagement. Afterwards, it inspects and analyzes the low-tier platforms to technically suggest the significance of each feature. These insights will help current and future learning platforms by systematically highlighting the evident factors in learner engagement." 
+    "summary": "Most online learning platforms in Bangladesh have a declining learner engagement rate due to a key factor: the lack of gamification. We surveyed 209 university students to capture the learner’s perspective on gamified features. Afterwards, we analyze the low-tier platforms to interpret the significance of these features. These insights will help current and future platforms by highlighting the evident factors in learner engagement." 
   },
   {
     "type": "research",

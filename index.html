@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ananta Raha&ndash;Portfolio</title>
+  <title>Ananta Raha&mdash;Portfolio</title>
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- Tailwind CSS -->
@@ -35,7 +35,8 @@
       --color-txt1: #000000;
       --color-txt2: #424242;
       --color-txt3: #757575;
-      
+      --color-light: #ffffff;
+      --color-dark: #000000;
 
       --font-fam1: "Nunito Sans", Arial, sans-serif;
       --font-fam2: "Raleway", Times, serif;
@@ -45,12 +46,35 @@
       --corner-fold: 36px;
       
     }
+    :root[data-theme="dark"] {
+      --color-prim: #26c6da;
+      --color-prim-focus: #80deea;
+      --color-prim-active: #00acc1;
+      --color-prim-mute: #c9f1f6;
+      --color-acc1: #ff8a4c;
+      --color-acc1-focus: #ffa46f;
+      --color-acc1-active: #e06f2f;
+      --color-acc1-mute: #ffe1d1;
+      --color-acc2: #651fff;
+      --color-acc2-focus: #7c4dff;
+      --color-acc2-active: #6200ea;
+      --color-acc2-mute: #b388ff;
+      --color-bg: #263238;
+      --color-sf: #292929;
+      --color-sf-focus: #515151;
+      --color-sf-overlay: #424242;
+      --color-txt1: #ffffff;
+      --color-txt2: #e0e0e0;
+      --color-txt3: #bababa;
+      --color-light: #000000;
+      --color-dark: #ffffff;
+    }
     @layer components {
       .nav-link {
         @apply 
         relative inline-block my-1 px-2 font-semibold lowercase
         hover:text-[var(--color-prim-focus)]
-        after:content-[''] after:absolute after:-bottom-1/7 after:left-1/2
+        after:content-[''] after:absolute after:-bottom-[7%] after:left-1/2
         after:w-1.5 after:h-1.5 after:-translate-x-1/2 after:rounded-full
         after:bg-[var(--color-prim-active)] after:opacity-0 after:scale-75
         hover:after:bg-[var(--color-prim-focus)];
@@ -102,32 +126,36 @@
 
       .inner-box-vbar {
         @apply
-        hover:after:scale-x-125 after:origin-left
         shadow-[inset_0_0_0_1px_var(--color-sf-focus)]
-        relative bg-[var(--color-sf-overlay)] rounded-r-2xl md:rounded-r-4xl w-full py-2 px-4 after:absolute after:content-[''] after:left-0 after:w-1 after:h-full after:bottom-0 after:bg-[var(--color-prim)];
+        relative bg-[var(--color-sf-overlay)] rounded-r-2xl md:rounded-r-4xl w-full py-2 px-4
+        after:origin-left after:absolute after:content-[''] after:left-0 after:w-1 after:h-full after:bottom-0 after:bg-[var(--color-prim)];
       }
 
       .inner-box-pointed {
         @apply
-        hover:after:scale-125 after:origin-left
         shadow-[inset_0_0_0_1px_var(--color-sf-focus)]
-        relative bg-[var(--color-sf-overlay)] rounded-2xl md:rounded-4xl w-full py-2 pr-4 pl-8 after:absolute after:content-[''] after:left-0 after:w-2 after:rounded-r-full after:h-4 after:bottom-1/2 after:translate-y-1/2 after:bg-[var(--color-prim)];
+        relative bg-[var(--color-sf-overlay)] rounded-2xl md:rounded-4xl w-full py-2 pr-4 pl-8
+        after:origin-left after:absolute after:content-[''] after:left-0 after:w-2 after:rounded-r-full after:h-4 after:bottom-1/2 after:translate-y-1/2 after:bg-[var(--color-prim)];
       }
 
       .listing {
         @apply
-        flex flex-col md:flex-row items-center pt-2 md:pt-4;
+        flex flex-col md:flex-row items-center pt-2 md:pt-4
+        hover:[&>.inner-box-pointed]:after:scale-125
+        hover:[&>.date]:text-[var(--color-txt2)];
       }
 
       .listing-flip {
         @apply
         flex flex-col md:flex-row items-start pt-6 md:pt-8
+        hover:[&>.date]:text-[var(--color-txt2)]
         even:[&>.listing-content-first]:md:order-2
         even:[&>.listing-content-second]:md:order-1
         even:[&>.listing-content-first]:text-end
         even:[&>.listing-content-first]:md:text-start
         even:[&>.listing-content-second]:text-end;
         @apply
+        hover:[&>.inner-box-vbar]:after:scale-x-125
         even:[&>.inner-box-vbar]:after:origin-right
         even:[&>.inner-box-vbar]:rounded-r-none
         even:[&>.inner-box-vbar]:md:rounded-r-none
@@ -136,6 +164,7 @@
         even:[&>.inner-box-vbar]:after:left-auto
         even:[&>.inner-box-vbar]:after:right-0;
         @apply
+        hover:[&>.inner-box-pointed]:after:scale-125
         even:[&>.inner-box-pointed]:after:origin-right
         even:[&>.inner-box-pointed]:after:rounded-r-none
         even:[&>.inner-box-pointed]:after:rounded-l-full
@@ -255,20 +284,29 @@
 
       .link-button {
         @apply
-        bg-white
+        bg-[var(--color-light)]
         inline-block font-semibold font-mono uppercase hover:underline text-xs md:text-sm text-[var(--color-acc1)] hover:text-[var(--color-acc1-focus)] active:text-[var(--color-acc1-active)];
       }
 
       .chip {
         @apply
         rounded-full px-1 md:px-2 font-medium font-mono text-sm md:text-base text-[var(--color-txt3)] border-1 border-[var(--color-prim)]
-        bg-linear-to-tr from-[var(--color-sf-focus)] to-white;
+        bg-linear-to-tr from-[var(--color-sf-focus)] to-[var(--color-light)];
+      }
+
+      .toggle {
+        @apply
+        bg-gray-300 rounded-full transition-colors
+        peer-checked:bg-[var(--color-prim-active)]
+        relative after:content-[''] after:absolute after:transition-transform
+        after:top-1 after:left-1 after:w-4 after:h-4 after:rounded-full after:bg-white
+        peer-checked:after:translate-x-4;
       }
 
       .self-name {
         font-family: var(--font-fam4);
         @apply
-        font-light text-xl md:text-2xl text-[var(--color-txt3)];
+        font-normal text-xl md:text-2xl text-[var(--color-txt3)];
       }
 
       hr {
@@ -288,7 +326,7 @@
 <body class="bg-[var(--color-bg)] antialiased leading-relaxed min-h-screen font-[family-name:var(--font-fam1)] text-base md:text-lg  text-[var(--color-txt2)]">
 
   <!-- Header -->
-  <header id="nav-bar" class="bg-white shadow-md fixed w-full top-0 z-50">
+  <header id="nav-bar" class="bg-[var(--color-light)] shadow-md fixed w-full top-0 z-50">
     <div class="flex px-4 py-1 justify-center items-center">
         <div id="nav-bar-title" class="self-name me-auto">Ananta Raha</div>
         <!-- Line 3: Desktop Navigation -->
@@ -324,7 +362,7 @@
 
 
   <!-- Main Sections -->
-  <main class="max-w-[960px] mx-auto px-4 md:px-8">
+  <main class="max-w-[960px] mx-auto px-4 md:px-8 bg-[var(--color-bg)]">
 
     <!-------------------------------- About -------------------------------->
     <!-------------------------------- About -------------------------------->
@@ -351,23 +389,25 @@
           </div>
           <div class="w-full md:w-8/11 text-justify">
             <p class="mb-4">
-              I am Ananta Raha, a CSE graduate with a strong research interest spanning Computer Vision, Medical Imaging, and Explainable AI. Particularly, I am motivated by developing trustworthy AI methods that ensure interpretability, efficiency, and privacy.
+              I am Ananta Raha, a CSE graduate with research interests in Computer Vision, Medical Imaging, and Explainable AI. Currently, my focus is on developing trustworthy AI methods that emphasize interpretability, efficiency, and privacy.
             </p>
             <p class="mb-4">
-              Following my undergraduate thesis on computationally-efficient brain tumor segmentation (from MRI), I have researched lightweight architectures for medical diagnosis and precision agriculture. During my graduate studies, I worked on several independent and team projects in diverse areas, such as inexpensive sericulture, neural network privacy, NGS read disambiguation, and human-computer interaction. These experiences have reinforced my research perspectives and implementation skills.
+              Following my undergraduate thesis on computationally efficient, RCNN-based brain tumor segmentation (MRI), I have studied lightweight vision architectures for clinical diagnosis. During my graduate studies, I worked on several independent and team projects in diverse areas, such as neural network privacy, computational biology, and human-computer interaction. These experiences have reinforced my research perspective and implementation skills.
             </p>
             <p>
-              I am actively seeking Ph.D. opportunities that will allow me to extend my foundation in lightweight vision toward impactful research in trustworthy healthcare and agriculture.
+              I am actively seeking Ph.D. opportunities that will allow me to extend my foundation in lightweight vision toward impactful research in trustworthy healthcare.
             </p>
-            <div class="flex flex-wrap justify-center pt-4 gap-3">
-              <span class="chip">Computer Vision</span>
-              <span class="chip">Medical Imaging</span>
-              <span class="chip">Edge-ML</span>
-              <span class="chip">Trustworthy AI</span>
-              <span class="chip">Multimodal Learning</span>
-              <span class="chip">Precision Agriculture</span>
-            </div>
           </div>
+        </div>
+        <hr>
+        <div class="flex flex-wrap justify-center pt-2 gap-3">
+          <span class="chip">Computer Vision</span>
+          <span class="chip">Medical Imaging</span>
+          <span class="chip">Trustworthy AI</span>
+          <span class="chip">Explainability</span>
+          <span class="chip">Edge AI</span>
+          <span class="chip">Precision Agriculture</span>
+          <span class="chip">Multimodal Learning</span>
         </div>
       </div>
     </section>
@@ -401,7 +441,7 @@
             <span class="subtitle">Rajshahi University of Engineering & Technology</span>
             <hr>
             <span class="summary">
-              <ins>CGPA:</ins> <strong>3.54</strong> (Out of 4.00)&ensp;|&ensp;<ins>CGPA of last two years of graduation:</ins> <strong>3.71</strong><br>
+              <ins>CGPA:</ins> <strong>3.54</strong> (Out of 4.00)&ensp;|&ensp;<ins>CGPA of last 2 years:</ins> <strong>3.71</strong><br>
               <ins>Thesis advisor:</ins> Farjana Parvin<br>
               <ins>Thesis:</ins> &ldquo;Automated Detection and Segmentation of Brain Tumor Using Low-Complex RCNN and Modified U-Net.&rdquo;
             </span>
@@ -512,11 +552,20 @@
       <div class="card">
         <div class="section-title">Contact Me</div>
         <div class="separator"></div>
-        I am open to research collaborations and discussions. For any queries, feel free to reach out.
+        I am open to research collaborations and scholarly discussions. For any inquiries, feel free to reach out.
         <div class="listing">
-          <div class="listing-content-first date">Email:</div>
-          <div class="listing-content-second inner-box-vbar">
+          <div class="listing-content-first date">Connect</div>
+          <div class="listing-content-second inner-box-pointed grid grid-cols-1 md:grid-cols-[auto_1fr] gap-x-4 md:gap-y-4">
+            <span>Email</span>
             <a href="mailto:ananta.raha.99@gmail.com" class="link">ananta.raha.99@gmail.com</a>
+            <span>LinkedIn</span>
+            <a href="https://www.linkedin.com/in/anantaraha" title="LinkedIn" class="link" target="_blank" rel="noopener noreferrer">linkedin.com/in/anantaraha</a>
+            <span>ResearchGate</span>
+            <a href="https://www.researchgate.net/profile/Ananta-Raha" title="ResearchGate" class="link" target="_blank" rel="noopener noreferrer">researchgate.net/profile/Ananta-Raha</a>
+            <span>Google Scholar</span>
+            <a href="https://scholar.google.com/citations?user=J1aQxFIAAAAJ" title="Google Scholar" class="link" target="_blank" rel="noopener noreferrer">scholar.google.com/citations?user=J1aQxFIAAAAJ</a>
+            <span>GitHub</span>
+            <a href="https://github.com/anantaraha" title="GitHub" class="link" target="_blank" rel="noopener noreferrer">github.com/anantaraha</a>
           </div>
         </div>
       </div>
@@ -525,10 +574,33 @@
   </main>
 
 
+  <!-- Night Toggle -->
+  <label class="fixed bottom-32 right-0 p-3
+           inline-flex items-center cursor-pointer gap-2
+           bg-[var(--color-light)] border-1 border-[var(--color-prim)] border-r-0 shadow-xl rounded-l-full z-100">
+    <input id="button-night" type="checkbox" class="sr-only peer">
+    <div class="w-10 h-6 toggle"></div>
+    <span class="font-medium text-base">Night</span>
+  </label>
 
-  <footer class="text-center py-2 md:py-4 mt-4 text-sm md:text-base text-[var(--color-txt3)] bg-[var(--color-sf)]">
+
+  <button id="button-scroll2top" type="button" aria-label="Back to top"
+      class="fixed bottom-0 left-1/2 -translate-x-1/2 px-6 py-3
+        inline-flex items-center cursor-pointer
+        bg-[var(--color-light)] border-1 border-[var(--color-prim)] border-b-0 font-medium text-base shadow-xl rounded-t-2xl z-100
+        transition-all duration-400 ease-out focus:outline-none
+        pointer-events-none
+        translate-y-[100%]
+        data-[open=true]:translate-y-0
+        data-[open=true]:pointer-events-auto">
+    Back to Top
+  </button>
+
+
+  <footer class="fixed bottom-0 -z-10 w-full text-center pb-16 text-sm md:text-base text-[var(--color-txt3)]">
     © 2026 Ananta Raha. All rights reserved.
   </footer>
+
 
 </body>
 </html>

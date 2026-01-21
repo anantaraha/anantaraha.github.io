@@ -198,7 +198,7 @@ $(document).ready(function() {
     // Apply scroll insets dynamically
     let viewportHeight = $(window).height() ?? 0;
     let headerHeight = $('header').outerHeight() ?? 0;
-    let footerHeight = $('footer').outerHeight() ?? 0;
+    let footerHeight = 0; /* $('footer').outerHeight() ?? 0; */
     let lastSectionHeight = $('section').last().outerHeight() ?? 0;
     $('section').first().css('margin-top', headerHeight);
     $('section').last().css('margin-bottom', Math.max(viewportHeight - headerHeight - lastSectionHeight - footerHeight, 0));
@@ -215,10 +215,12 @@ $(document).ready(function() {
         $('#mobile-nav-menu').toggleClass('hidden');
     });
 
+
     // Close the nav menu on item click
     $('#mobile-nav-menu a').on('click', function () {
         $('#mobile-nav-menu').toggleClass('hidden');
-    })
+    });
+
 
     // Nav link tracking section
     const sections = $('section');
@@ -228,7 +230,6 @@ $(document).ready(function() {
         sections.each(function () {
             let sectionTop = Math.ceil($(this).offset().top);
             let sectionBottom = sectionTop + $(this).outerHeight();
-            //console.log(this.id + "-> sT:" + sectionTop + " tO:" + topOffset + " hH:" + $('header').outerHeight())
             if (topOffset >= sectionTop && topOffset < sectionBottom) {
                 navLinks.removeClass('nav-link-active');
                 navLinks.filter('[href="#' + this.id + '"]').addClass("nav-link-active");
@@ -236,16 +237,53 @@ $(document).ready(function() {
         });
     });
 
+
     // Smooth scroll on click
     navLinks.on('click', function (e) {
         if ($(this).hasClass('no-scroll')) return; // allow normal behavior
         e.preventDefault();
         let target = $(this).attr('href');
-        //console.log("scrollTo:" + ($(target).offset().top-headerHeight) + " tO:" + $(target).offset().top + " manual:" + $('#sec-skills').offset().top)
         $('html, body').animate(
         { scrollTop: $(target).offset().top - headerHeight }, // adjust offset for header height
         500 // duration in ms
         );
     });
     $(window).trigger('scroll');
+
+
+    // Scroll to top button
+    const btnScroll2Top = $('#button-scroll2top');
+    $(window).on('scroll', function () {
+        btnScroll2Top.attr('data-open', window.scrollY > 2100);
+    });
+    btnScroll2Top.on('click', function () {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
+
+    // Night support
+    const rootHtml = $('html');
+    const storageKey = 'theme';
+
+    // Apply saved theme or system preference
+    const savedTheme = localStorage.getItem(storageKey);
+    const prefDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefDark)) {
+      rootHtml.attr('data-theme', 'dark');
+      // Update state
+      $('#button-night').prop('checked', true);
+    }
+
+    // Toggle on click
+    $('#button-night').on('click', function () {
+      if (rootHtml.attr('data-theme') === 'dark') {
+        rootHtml.removeAttr('data-theme');
+        localStorage.setItem(storageKey, 'light');
+      } else {
+        rootHtml.attr('data-theme', 'dark');
+        localStorage.setItem(storageKey, 'dark');
+      }
+    });
+
 });

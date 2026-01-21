@@ -1,10 +1,10 @@
 [
   {
-    "title": "Research Experience in Deep Learning and Computer Vision",
+    "title": "Research Experience in Computer Vision and Deep Learning",
     "skills": [
       "Led a self-directed research project end-to-end&mdash;from problem formulation to publication.",
-      "First author in multiple articles; collaboration for feedback and validation.",
-      "<ins>Libraries:</ins> <em>OpenCV, TensorFlow, PyTorch, NumPy, Pandas, Scikit-learn</em>, etc."
+      "First author on multiple peer-reviewed papers; collaborated with co-authors.",
+      "<ins>Libraries:</ins> <em>OpenCV, TensorFlow, PyTorch, NumPy, Pandas, Scikit-learn, MONAI, Neurokit2</em>, etc."
     ]
   },
   {
@@ -26,7 +26,7 @@
     "skills": [
       "Multiple projects using Arduino and ESP32 microcontrollers.", 
       "Wrote code for a robust Line Follower Robot (LFR).",
-      "<ins>IDE/Frameworks:</ins> <em>PlatformIO, Arduino IDE.</em>"
+      "<ins>Frameworks:</ins> <em>PlatformIO, Arduino IDE.</em>"
     ]
   },
   {
