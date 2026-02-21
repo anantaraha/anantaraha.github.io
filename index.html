@@ -306,7 +306,11 @@
       .self-name {
         font-family: var(--font-fam4);
         @apply
-        font-normal text-xl md:text-2xl text-[var(--color-txt3)];
+        font-normal text-xl md:text-2xl text-black opacity-20
+        select-none;
+      }
+      :root[data-theme="dark"] .self-name {
+        filter: invert(100%);
       }
 
       hr {
@@ -318,6 +322,7 @@
         @apply
         font-semibold text-[var(--color-txt2)];
       }
+
     }
   </style>
 
@@ -328,7 +333,8 @@
   <!-- Header -->
   <header id="nav-bar" class="bg-[var(--color-light)] shadow-md fixed w-full top-0 z-50">
     <div class="flex px-4 py-1 justify-center items-center">
-        <div id="nav-bar-title" class="self-name me-auto">Ananta Raha</div>
+        <div id="nav-bar-title" class="self-name me-auto flex flex-wrap items-center">
+          <img src="res/title_me.png" alt="Ananta" class="h-7 md:h-8" fetchpriority="high" loading="eager" draggable="false"><span>&thinsp;:portfolio</span></div>
         <!-- Line 3: Desktop Navigation -->
         <nav id="desktop-nav-menu" class="hidden flex flex-wrap md:flex justify-center space-x-4">
           <a href="#sec-about" class="nav-link">About</a>
